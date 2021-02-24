@@ -1,0 +1,14 @@
+spring:
+  datasource:
+    username: root #数据库账号
+    password: Zyd201314. #数据库密码
+    url: jdbc:mysql://123.57.208.218:3306/mall?useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC #数据库连接
+    type: com.alibaba.druid.pool.DruidDataSource #连接池
+    driver-class-name: com.mysql.jdbc.Driver #数据库驱动
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    mapper-locations: /mapper/*.xml
+    type-aliases-package: com.mju.mall
+server:
+  port: 8080
