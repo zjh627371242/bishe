@@ -1,6 +1,5 @@
 package com.mju.bishe.controller;
 
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.mju.bishe.service.CourseService;
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +13,4 @@ public class CourseController {
 @Autowired
 private CourseService targetService;
 
-    public void setTargetService(CourseService targetService) {
-
-    }
 }
