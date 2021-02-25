@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bssc.cloud.bizcomm.db.mapper.WorkloadMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.mju.bishe.entity.Workload">
+        <id column="id" property="id" />
+        <result column="school_year" property="schoolYear" />
+        <result column="school_term" property="schoolTerm" />
+        <result column="teacher_id" property="teacherId" />
+        <result column="theoretical_wordload" property="theoreticalWordload" />
+        <result column="practical_wordload" property="practicalWordload" />
+        <result column="classroom" property="classroom" />
+        <result column="class_type" property="classType" />
+        <result column="language" property="language" />
+        <result column="student_count" property="studentCount" />
+        <result column="class_hours" property="classHours" />
+        <result column="course_id" property="courseId" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, school_year, school_term, teacher_id,theoretical_wordload, practical_wordload, classroom, class_type, language, student_count, class_hours, course_id
+    </sql>
+
+</mapper>
