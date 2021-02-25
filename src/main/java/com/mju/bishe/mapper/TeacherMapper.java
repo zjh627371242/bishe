@@ -1,9 +1,10 @@
 package com.mju.bishe.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.mju.bishe.entity.Teacher;
 import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
-public interface TeacherMapper extends BaseMapper {
+public interface TeacherMapper extends BaseMapper<Teacher> {
 
 }
