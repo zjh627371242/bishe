@@ -9,6 +9,7 @@ import com.mju.bishe.entity.Course;
 import com.mju.bishe.service.CourseService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -28,9 +29,7 @@ public class CourseController {
     @PostMapping(value = "/list")
     @ResponseBody
     public Result<IPage<Course>> list(@RequestBody Map map){
-        QueryWrapper<Course> queryWrapper=new QueryWrapper();
-        PageParams pageParams=new PageParams(map);
-        return ResultFactory.success(targetService.page(pageParams,queryWrapper));
+        return targetService.list(map);
     }
     /**
      * 删除课程
@@ -38,8 +37,8 @@ public class CourseController {
     @ApiOperation(value = "删除课程", notes = "删除课程")
     @PostMapping(value = "/delete")
     @ResponseBody
-    public Result delete(@RequestBody Long id){
-        if (targetService.removeById(id)){
+    public Result delete(@RequestBody Course course){
+        if (targetService.removeById(course.getId())){
             return ResultFactory.success("删除成功",null);
         }else {
             return ResultFactory.failed("删除失败",null);
@@ -70,5 +69,18 @@ public class CourseController {
         }else {
             return ResultFactory.failed("修改失败",null);
         }
+    }
+    /**
+     * 查看详情
+     */
+    @ApiOperation(value = "查看详情", notes = "查看详情")
+    @PostMapping(value = "/detail")
+    @ResponseBody
+    public Result detail(@RequestBody Course course){
+        Course byId = targetService.getById(course.getId());
+        if (byId!=null){
+            return ResultFactory.success(byId);
+        }
+        return ResultFactory.failed("查询失败",null);
     }
 }

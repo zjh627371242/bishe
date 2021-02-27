@@ -14,4 +14,12 @@
     <sql id="Base_Column_List">
         id, name, category, type
     </sql>
+
+    <select id="list" resultType="com.mju.bishe.entity.Course">
+        select <include refid="Base_Column_List"/> from course
+        where 1=1
+        <if test="map.name != null and map.name !=''">
+            and name like concat('%',#{map.name},'%')
+        </if>
+    </select>
 </mapper>
