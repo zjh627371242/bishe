@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@Api(value = "服务接口", tags = "服务接口")
+@Api(value = "教师信息处理接口", tags = "教师信息处理接口")
 @RestController
 @RequestMapping("teacher")
 public class TeacherController {
