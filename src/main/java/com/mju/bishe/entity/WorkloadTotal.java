@@ -1,5 +1,6 @@
 package com.mju.bishe.entity;
 
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
@@ -8,6 +9,7 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
+import java.beans.Transient;
 import java.io.Serializable;
 
 @Data
@@ -35,4 +37,13 @@ public class WorkloadTotal implements Serializable {
 
     @ApiModelProperty(value = "学期实践教学总工作量")
     private Double practicalWordloadTotal;
+
+    @TableField
+    private String teacherName;
+
+    @TableField
+    private String positionalTitle;
+
+    @TableField
+    private Integer classNum;
 }
