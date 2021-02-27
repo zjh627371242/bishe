@@ -9,6 +9,6 @@ mybatis-plus:
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
     mapper-locations: /mapper/xml/*.xml
-    type-aliases-package: com.mju.mall
+    type-aliases-package: com.mju.bishe
 server:
   port: 8080
