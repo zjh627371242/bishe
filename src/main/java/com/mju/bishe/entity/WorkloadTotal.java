@@ -33,17 +33,17 @@ public class WorkloadTotal implements Serializable {
     private Integer schoolTerm;
 
     @ApiModelProperty(value = "学期理论教学总工作量")
-    private Double  theoreticalWordloadTotal;
+    private Double theoreticalWordloadTotal;
 
     @ApiModelProperty(value = "学期实践教学总工作量")
     private Double practicalWordloadTotal;
 
-    @TableField
+    @TableField(exist = false)
     private String teacherName;
 
-    @TableField
+    @TableField(exist = false)
     private String positionalTitle;
 
-    @TableField
+    @TableField(exist = false)
     private Integer classNum;
 }

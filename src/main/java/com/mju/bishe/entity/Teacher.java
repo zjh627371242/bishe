@@ -1,6 +1,7 @@
 package com.mju.bishe.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import io.swagger.annotations.ApiModel;
@@ -31,4 +32,15 @@ public class Teacher implements Serializable {
     @ApiModelProperty(value = "聘用形式（在编/外聘）")
     private String type;
 
+    @TableField(exist = false)
+    private Double  theoreticalWordloadTotal;
+
+    @TableField(exist = false)
+    private Double practicalWordloadTotal;
+
+    @TableField(exist = false)
+    private Integer schoolYear;
+
+    @TableField(exist = false)
+    private Integer schoolTerm;
 }
