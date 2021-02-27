@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("course")
 public class CourseController {
-@Autowired
-private CourseService targetService;
-
+    @Autowired
+    private CourseService targetService;
+    
 }
