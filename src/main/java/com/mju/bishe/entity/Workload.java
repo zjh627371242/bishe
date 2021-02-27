@@ -59,4 +59,20 @@ public class Workload implements Serializable {
     @ApiModelProperty(value = "课程信息")
     @TableField(exist = false)
     private Course course;
+
+    @ApiModelProperty(value = "老师信息")
+    @TableField(exist = false)
+    private Teacher teacher;
+
+    @ApiModelProperty(value = "教师姓名")
+    @TableField(exist = false)
+    private String name;
+
+    @ApiModelProperty(value = "职称")
+    @TableField(exist = false)
+    private String positionalTitle;
+
+    @ApiModelProperty(value = "聘用形式（在编/外聘）")
+    @TableField(exist = false)
+    private String type;
 }

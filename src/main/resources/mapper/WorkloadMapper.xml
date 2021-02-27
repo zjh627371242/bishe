@@ -17,10 +17,21 @@
         <result column="class_hours" property="classHours" />
         <result column="course_id" property="courseId" />
     </resultMap>
+    <resultMap id="courseResultMap" type="com.mju.bishe.entity.Workload" extends="BaseResultMap">
+        <association column="course_id" property="course" select="com.mju.bishe.mapper.CourseMapper.selectById"/>
+        <association column="teacher_id" property="teacher" select="com.mju.bishe.mapper.TeacherMapper.selectById"/>
+    </resultMap>
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        id, school_year, school_term, teacher_id,theoretical_wordload,practical_wordload,classroom, class_type, language, student_count, class_hours, course_id
+        w.id, w.school_year, w.school_term, w.teacher_id,w.theoretical_wordload,w.practical_wordload,w.classroom, w.class_type, w.language, w.student_count, w.class_hours, w.course_id
     </sql>
+    <select id="getList" resultMap="courseResultMap">
+        select <include refid="Base_Column_List"/>,t.name,t.positional_title "positionalTitle",t.type "type"
+        from workload w,teacher t where w.teacher_id = t.id
+        <if test="queryfilter.name!=null and queryfilter.name!=''">
+        and t.name like concat('%',#{queryfilter.name},'%')
+        </if>
+    </select>
 
 </mapper>
