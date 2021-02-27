@@ -1,123 +1,60 @@
 package com.mju.bishe.entity;
 
-public class Workload{
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+
+import java.io.Serializable;
+
+@Data
+@EqualsAndHashCode(callSuper = false)
+@TableName("workload")
+@ApiModel(value="Workload对象", description="")
+public class Workload implements Serializable {
+
+    private static final long serialVersionUID=1L;
+
+    @ApiModelProperty(value = "主键")
+    @TableId(value = "id", type = IdType.ASSIGN_ID)
     private Long id;
 
+    @ApiModelProperty(value = "学年")
     private Integer schoolYear;
 
+    @ApiModelProperty(value = "学期")
     private Integer schoolTerm;
 
+    @ApiModelProperty(value = "教师id")
     private Long teacherId;
 
-    private Double theoreticalWordload;
+    @ApiModelProperty(value = "理论教学工作量")
+    private Double 
 
+theoreticalWordload;
+
+    @ApiModelProperty(value = "实践教学工作量")
     private Double practicalWordload;
 
+    @ApiModelProperty(value = "授课班级")
     private String classroom;
 
+    @ApiModelProperty(value = "班级类型（重复班，开新课）")
     private String classType;
 
+    @ApiModelProperty(value = "教学语言（中文教学、英文教学、双语教学）")
     private String language;
 
+    @ApiModelProperty(value = "班级人数")
     private Integer studentCount;
 
+    @ApiModelProperty(value = "课程计划学时数")
     private Integer classHours;
 
+    @ApiModelProperty(value = "课程id")
     private Long courseId;
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Integer getSchoolYear() {
-        return schoolYear;
-    }
-
-    public void setSchoolYear(Integer schoolYear) {
-        this.schoolYear = schoolYear;
-    }
-
-    public Integer getSchoolTerm() {
-        return schoolTerm;
-    }
-
-    public void setSchoolTerm(Integer schoolTerm) {
-        this.schoolTerm = schoolTerm;
-    }
-
-    public Long getTeacherId() {
-        return teacherId;
-    }
-
-    public void setTeacherId(Long teacherId) {
-        this.teacherId = teacherId;
-    }
-
-    public Double getTheoreticalWordload() {
-        return theoreticalWordload;
-    }
-
-    public void setTheoreticalWordload(Double theoreticalWordload) {
-        this.theoreticalWordload = theoreticalWordload;
-    }
-
-    public Double getPracticalWordload() {
-        return practicalWordload;
-    }
-
-    public void setPracticalWordload(Double practicalWordload) {
-        this.practicalWordload = practicalWordload;
-    }
-
-    public String getClassroom() {
-        return classroom;
-    }
-
-    public void setClassroom(String classroom) {
-        this.classroom = classroom;
-    }
-
-    public String getClassType() {
-        return classType;
-    }
-
-    public void setClassType(String classType) {
-        this.classType = classType;
-    }
-
-    public String getLanguage() {
-        return language;
-    }
-
-    public void setLanguage(String language) {
-        this.language = language;
-    }
-
-    public Integer getStudentCount() {
-        return studentCount;
-    }
-
-    public void setStudentCount(Integer studentCount) {
-        this.studentCount = studentCount;
-    }
-
-    public Integer getClassHours() {
-        return classHours;
-    }
-
-    public void setClassHours(Integer classHours) {
-        this.classHours = classHours;
-    }
-
-    public Long getCourseId() {
-        return courseId;
-    }
-
-    public void setCourseId(Long courseId) {
-        this.courseId = courseId;
-    }
 }

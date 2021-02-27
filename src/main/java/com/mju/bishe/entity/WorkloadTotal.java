@@ -1,64 +1,38 @@
 package com.mju.bishe.entity;
 
-public class WorkloadTotal{
+import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
 
+import java.io.Serializable;
+
+@Data
+@EqualsAndHashCode(callSuper = false)
+@TableName("workload_total")
+@ApiModel(value="WorkloadTotal对象", description="")
+public class WorkloadTotal implements Serializable {
+    private static final long serialVersionUID=1L;
+
+    @ApiModelProperty(value = "主键")
+    @TableId(value = "id", type = IdType.ASSIGN_ID)
     private Long id;
 
+    @ApiModelProperty(value = "教师id")
     private Long teacherId;
 
+    @ApiModelProperty(value = "学年")
     private Integer schoolYear;
 
+    @ApiModelProperty(value = "学期")
     private Integer schoolTerm;
 
-    private Double theoreticalWordloadTotal;
+    @ApiModelProperty(value = "学期理论教学总工作量")
+    private Double  theoreticalWordloadTotal;
 
+    @ApiModelProperty(value = "学期实践教学总工作量")
     private Double practicalWordloadTotal;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Long getTeacherId() {
-        return teacherId;
-    }
-
-    public void setTeacherId(Long teacherId) {
-        this.teacherId = teacherId;
-    }
-
-    public Integer getSchoolYear() {
-        return schoolYear;
-    }
-
-    public void setSchoolYear(Integer schoolYear) {
-        this.schoolYear = schoolYear;
-    }
-
-    public Integer getSchoolTerm() {
-        return schoolTerm;
-    }
-
-    public void setSchoolTerm(Integer schoolTerm) {
-        this.schoolTerm = schoolTerm;
-    }
-
-    public Double getTheoreticalWordloadTotal() {
-        return theoreticalWordloadTotal;
-    }
-
-    public void setTheoreticalWordloadTotal(Double theoreticalWordloadTotal) {
-        this.theoreticalWordloadTotal = theoreticalWordloadTotal;
-    }
-
-    public Double getPracticalWordloadTotal() {
-        return practicalWordloadTotal;
-    }
-
-    public void setPracticalWordloadTotal(Double practicalWordloadTotal) {
-        this.practicalWordloadTotal = practicalWordloadTotal;
-    }
 }

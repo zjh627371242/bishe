@@ -12,9 +12,9 @@ import java.io.Serializable;
 
 @Data
 @EqualsAndHashCode(callSuper = false)
-@TableName("teacher")
-@ApiModel(value="Teacher对象", description="")
-public class Teacher implements Serializable {
+@TableName("user")
+@ApiModel(value="User对象", description="")
+public class User implements Serializable {
 
     private static final long serialVersionUID=1L;
 
@@ -22,13 +22,10 @@ public class Teacher implements Serializable {
     @TableId(value = "id", type = IdType.ASSIGN_ID)
     private Long id;
 
-    @ApiModelProperty(value = "教师姓名")
+    @ApiModelProperty(value = "登录名")
     private String name;
 
-    @ApiModelProperty(value = "职称")
-    private String positionalTitle;
-
-    @ApiModelProperty(value = "聘用形式（在编/外聘）")
-    private String type;
+    @ApiModelProperty(value = "密码")
+    private String password;
 
 }
