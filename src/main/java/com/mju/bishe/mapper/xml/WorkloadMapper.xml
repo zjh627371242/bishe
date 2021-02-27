@@ -8,6 +8,8 @@
         <result column="school_year" property="schoolYear" />
         <result column="school_term" property="schoolTerm" />
         <result column="teacher_id" property="teacherId" />
+        <result column="theoretical_wordload" property="theoreticalWordload" />
+        <result column="practical_wordload" property="practicalWordload" />
         <result column="classroom" property="classroom" />
         <result column="class_type" property="classType" />
         <result column="language" property="language" />
@@ -18,7 +20,7 @@
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        id, school_year, school_term, teacher_id,classroom, class_type, language, student_count, class_hours, course_id
+        id, school_year, school_term, teacher_id,theoretical_wordload,practical_wordload,classroom, class_type, language, student_count, class_hours, course_id
     </sql>
 
 </mapper>

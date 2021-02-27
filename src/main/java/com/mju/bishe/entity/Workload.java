@@ -32,6 +32,12 @@ public class Workload implements Serializable {
     @ApiModelProperty(value = "教师id")
     private Long teacherId;
 
+    @ApiModelProperty(value = "理论教学工作量")
+    private Double theoreticalWordload;
+
+    @ApiModelProperty(value = "实践教学工作量")
+    private Double practicalWordload;
+
     @ApiModelProperty(value = "授课班级")
     private String classroom;
 
