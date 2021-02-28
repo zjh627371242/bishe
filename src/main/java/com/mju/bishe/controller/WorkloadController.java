@@ -42,10 +42,10 @@ public class WorkloadController {
     @PostMapping("/save")
     @ApiOperation(value = "录入教师单个教学任务信息", httpMethod = "POST")
     public Result save(@RequestBody Workload workload){
-//        //判断课程是否是理论课
-//        if (workload.getCourse().getCategory().equals(ClassCategoryEnum.theory.toString())){
-//            //当前理论课教学工作量
-//            double theory = this.getTheory(workload.getClassHours(), workload.getStudentCount(), workload.getClassType(), workload.getLanguage());
+        //判断课程是否是理论课
+        if (workload.getCourse().getCategory().equals(ClassCategoryEnum.theory.toString())){
+            //当前理论课教学工作量
+            double theory = this.getTheory(workload.getClassHours(), workload.getStudentCount(), workload.getClassType(), workload.getLanguage());
 //            //查询已经录入的理论课教学工作总量
 //            QueryWrapper<Workload> workloadQueryWrapper = new QueryWrapper<>();
 //            workloadQueryWrapper.select("SUM(theoretical_wordload) as theoreticalWordload").eq("teacher_id",workload.getTeacherId())
@@ -65,16 +65,16 @@ public class WorkloadController {
 //                if (theory + currentTheoryTotal > workloadTotal.getTheoreticalWordloadTotal()){
 //                    return ResultFactory.failed("课程计划学时数超过学期理论教学总工作量",null);
 //                }else {
-//                    //录入教师单个教学任务信息
-//                    boolean save = targetService.save(workload);
-//                    if (save){
-//                        return ResultFactory.success(null);
-//                    }
-//                    return ResultFactory.failed("录入教师单个教学任务信息失败!",null);
+                    //录入教师单个教学任务信息
+                    boolean save = targetService.save(workload);
+                    if (save){
+                        return ResultFactory.success(null);
+                    }
+                    return ResultFactory.failed("录入教师单个教学任务信息失败!",null);
 //                }
 //            }
-//        }else {//否则是实践课
-//            double practice = this.getPractice(workload.getClassHours(), workload.getStudentCount(), workload.getClassType(), workload.getLanguage());
+        }else {//否则是实践课
+            double practice = this.getPractice(workload.getClassHours(), workload.getStudentCount(), workload.getClassType(), workload.getLanguage());
 //            //查询已经录入的实践课教学工作总量
 //            QueryWrapper<Workload> workloadQueryWrapper = new QueryWrapper<>();
 //            workloadQueryWrapper.select("SUM(practical_wordload) as practicalWordload").eq("teacher_id",workload.getTeacherId())
@@ -106,6 +106,7 @@ public class WorkloadController {
             return ResultFactory.success(null);
         }
         return ResultFactory.failed("录入教师单个教学任务信息失败!",null);
+    }
     }
 
     @PostMapping("/update")
