@@ -5,8 +5,6 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.mju.bishe.common.PageParams;
 import com.mju.bishe.common.Result;
 import com.mju.bishe.common.ResultFactory;
-import com.mju.bishe.entity.Course;
-import com.mju.bishe.entity.Workload;
 import com.mju.bishe.entity.WorkloadTotal;
 import com.mju.bishe.mapper.WorkloadTotalMapper;
 import com.mju.bishe.service.WorkloadTotalService;
@@ -23,9 +21,9 @@ public class WorkloadTotalServiceImpl extends ServiceImpl<WorkloadTotalMapper, W
     WorkloadTotalMapper workloadTotalMapper;
 
     @Override
-    public Result<IPage<Workload>> getList(Map map) {
+    public Result<IPage<WorkloadTotal>> getList(Map map) {
         PageParams page = new PageParams(map);
-        IPage<Workload> list = workloadTotalMapper.getList(page,map);
+        IPage<WorkloadTotal> list = workloadTotalMapper.getList(page,map);
         return ResultFactory.success(list);
     }
 }

@@ -10,6 +10,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 import java.io.Serializable;
+import java.util.List;
 
 @Data
 @EqualsAndHashCode(callSuper = false)
@@ -43,4 +44,8 @@ public class Teacher implements Serializable {
 
     @TableField(exist = false)
     private Integer schoolTerm;
+
+    @TableField(exist = false)
+    private List<WorkloadTotal> workloadTotalList;
+
 }

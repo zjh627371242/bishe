@@ -43,7 +43,8 @@ public class WorkloadController {
     @ApiOperation(value = "录入教师单个教学任务信息", httpMethod = "POST")
     public Result save(@RequestBody Workload workload){
         //判断课程是否是理论课
-        if (workload.getCourse().getCategory().equals(ClassCategoryEnum.theory.toString())){
+        Course course = courseService.getById(workload.getCourseId());
+        if (course.getCategory().equals(ClassCategoryEnum.theory.toString())){
             //当前理论课教学工作量
             double theory = this.getTheory(workload.getClassHours(), workload.getStudentCount(), workload.getClassType(), workload.getLanguage());
 //            //查询已经录入的理论课教学工作总量
@@ -117,7 +118,7 @@ public class WorkloadController {
         //录入教师单个教学任务信息
         boolean save = targetService.updateById(workload);
         if (save){
-            return ResultFactory.success(null);
+            return ResultFactory.success("编辑成功",null);
         }else {
             return ResultFactory.failed("修改教师单个教学任务信息失败!",null);
         }
@@ -125,24 +126,24 @@ public class WorkloadController {
 
     @PostMapping("/delete")
     @ApiOperation(value = "删除教师单个教学任务信息", httpMethod = "POST")
-    public Result delete(@RequestBody Long id){
+    public Result delete(@RequestBody Workload workload){
         //录入教师单个教学任务信息
-        boolean save = targetService.removeById(id);
+        boolean save = targetService.removeById(workload.getId());
         if (save){
-            return ResultFactory.success(null);
+            return ResultFactory.success("删除成功",null);
         }else {
             return ResultFactory.failed("删除教师单个教学任务信息失败!",null);
         }
     }
 
-    @GetMapping("/getOne")
+    @PostMapping("/getOne")
     @ApiOperation(value = "浏览教师单个教学任务信息", httpMethod = "POST")
     @ApiImplicitParams({
             @ApiImplicitParam(name = "id", value = "任务id", dataType = "Long",required = true),
     })
-    public Result<Workload> getOne(@RequestBody Long id){
+    public Result<Workload> getOne(@RequestBody Workload entity){
         //查询教师单个教学任务信息
-        Workload workload = targetService.getById(id);
+        Workload workload = targetService.getById(entity.getId());
         if (workload != null){
             //查询课程信息
             Course course = courseService.getById(workload.getCourseId());

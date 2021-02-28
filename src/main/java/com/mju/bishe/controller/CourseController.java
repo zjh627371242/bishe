@@ -6,6 +6,7 @@ import com.mju.bishe.common.PageParams;
 import com.mju.bishe.common.Result;
 import com.mju.bishe.common.ResultFactory;
 import com.mju.bishe.entity.Course;
+import com.mju.bishe.entity.Teacher;
 import com.mju.bishe.service.CourseService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -13,6 +14,7 @@ import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Map;
 
 
@@ -82,5 +84,14 @@ public class CourseController {
             return ResultFactory.success(byId);
         }
         return ResultFactory.failed("查询失败",null);
+    }
+    /**
+     * 查询所有课程
+     */
+    @ApiOperation(value = "查询所有课程", notes = "查询所有课程")
+    @PostMapping(value = "/getCourseList")
+    @ResponseBody
+    public Result<List<Course>> getCourseList(){
+        return ResultFactory.success(targetService.list());
     }
 }

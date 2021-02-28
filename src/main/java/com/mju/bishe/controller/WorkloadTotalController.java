@@ -2,7 +2,7 @@ package com.mju.bishe.controller;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.mju.bishe.common.Result;
-import com.mju.bishe.entity.Workload;
+import com.mju.bishe.entity.WorkloadTotal;
 import com.mju.bishe.service.WorkloadTotalService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -24,7 +24,7 @@ public class WorkloadTotalController {
     @ApiOperation(value = "获取分页数据", notes = "获取分页数据")
     @PostMapping(value = "/list")
     @ResponseBody
-    public Result<IPage<Workload>> list(@RequestBody Map map){
+    public Result<IPage<WorkloadTotal>> list(@RequestBody Map map){
         return targetService.getList(map);
     }
 }

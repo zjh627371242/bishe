@@ -20,11 +20,11 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
     @Override
     public Result loginCheck(Map map) {
         QueryWrapper<User> queryWrapper = new QueryWrapper();
-        queryWrapper.eq("name",map.get("name"));
+        queryWrapper.eq("name",map.get("username"));
         queryWrapper.eq("password",map.get("password"));
         User user = userMapper.selectOne(queryWrapper);
         if (user!=null){
-            return ResultFactory.success(null);
+            return ResultFactory.success("登录成功",null);
         }
         return ResultFactory.failed("账号或密码错误",null);
     }
