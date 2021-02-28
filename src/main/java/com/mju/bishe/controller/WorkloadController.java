@@ -66,6 +66,7 @@ public class WorkloadController {
 //                    return ResultFactory.failed("课程计划学时数超过学期理论教学总工作量",null);
 //                }else {
                     //录入教师单个教学任务信息
+            workload.setTheoreticalWordload(theory);
                     boolean save = targetService.save(workload);
                     if (save){
                         return ResultFactory.success(null);
@@ -75,6 +76,7 @@ public class WorkloadController {
 //            }
         }else {//否则是实践课
             double practice = this.getPractice(workload.getClassHours(), workload.getStudentCount(), workload.getClassType(), workload.getLanguage());
+            workload.setPracticalWordload(practice);
 //            //查询已经录入的实践课教学工作总量
 //            QueryWrapper<Workload> workloadQueryWrapper = new QueryWrapper<>();
 //            workloadQueryWrapper.select("SUM(practical_wordload) as practicalWordload").eq("teacher_id",workload.getTeacherId())
